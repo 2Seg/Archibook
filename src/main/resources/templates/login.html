@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Connexion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Bienvenue sur ArchiBook</h1>
+
+<strong th:if="${erreur}" th:text="${erreur}">Erreur</strong><br/>
+
+<form method="post" action="/login">
+    <fieldset>
+        <legend>Connexion</legend>
+
+        <label for="userId">Identifiant*</label>
+        <input type="text" name="userId" id="userId" /><br/>
+
+        <label for="password">Mot de passe*</label>
+        <input type="password" name="password" id="password" /><br/>
+
+        <input type="submit" value="Se connecter" />
+    </fieldset>
+</form>
+</body>
+</html>

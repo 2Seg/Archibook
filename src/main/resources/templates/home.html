@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Accueil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+</head>
+<body>
+
+<h1>Vous êtes connecté !</h1>
+
+<section>
+    <h2>Vos informations</h2>
+    <ul>
+        <li>Identifiant : <span th:text="${student.userId}">userId</span></li>
+        <li>Prénom : <span th:text="${student.firstName}">firstName</span></li>
+        <li>Nom : <span th:text="${student.lastName}">lastName</span></li>
+        <li>Ecole : <span th:text="${student.school}">school</span></li>
+    </ul>
+</section>
+
+<section th:if="${studentList}">
+    <h2>Autres élèves de <span th:text="${student.school}">ecole</span></h2>
+    <ul th:each="stud : ${studentList}">
+        <li th:if="${student.userId} != ${stud.userId}" th:text="${stud.firstName} + ' ' + ${stud.lastName}">élève</li>
+    </ul>
+</section>
+
+
+<a href="/logout">Se déconnecter</a>
+
+</body>
+</html>
